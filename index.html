@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta name="theme-color" content="#f5f3ed" />
+    <meta
+      name="description"
+      content="Golden Client Manager 受控 pilot：用最少输入生成可执行、可解释、可审计的顾问工作卡。"
+    />
+    <title>Golden Client Manager · 金牌客户经理</title>
+    <link rel="stylesheet" href="./assets/app.css" />
+    <script src="./assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">跳到客户工作区</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Golden Client Manager 首页">
+        <span class="brand-mark" aria-hidden="true">G</span>
+        <span>
+          <strong>金牌客户经理</strong>
+          <small>Golden Client Manager</small>
+        </span>
+      </a>
+      <div class="header-meta" aria-label="运行状态">
+        <span class="status-chip"><i></i> 受控 Pilot</span>
+        <span class="privacy-chip">数据不离开本页</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal" aria-labelledby="hero-title">
+        <p class="kicker">给客户经理的决策助手</p>
+        <h1 id="hero-title">少找资料，少走弯路，<br /><em>先把下一步说清楚。</em></h1>
+        <p class="hero-lead">
+          选择今天要完成的工作，补充最低限度的客户信息，得到一张可执行、可解释、带合规边界的工作卡。
+        </p>
+        <a class="hero-action" href="#task-picker">开始准备 <span aria-hidden="true">↓</span></a>
+        <div class="value-strip" aria-label="核心价值">
+          <span><b>01</b> 快速整理客户情境</span>
+          <span><b>02</b> 推荐理由绑定证据</span>
+          <span><b>03</b> 客户触达前拦截红线</span>
+        </div>
+      </section>
+
+      <section class="task-picker reveal" id="task-picker" aria-labelledby="task-title">
+        <div class="section-heading simple-heading">
+          <div>
+            <p class="section-index">第一步</p>
+            <h2 id="task-title">你今天要完成什么？</h2>
+          </div>
+          <p>不需要先理解系统模块，直接选择需要的结果。</p>
+        </div>
+
+        <div class="task-grid" role="tablist" aria-label="工作目标">
+          <button class="task-card is-active" type="button" role="tab" aria-selected="true" data-mode="meeting">
+            <span class="task-icon" aria-hidden="true">会</span>
+            <span class="task-copy">
+              <small>推荐起点</small>
+              <strong>准备一次客户沟通</strong>
+              <em>输出阻力判断、开场、三问与下一步</em>
+            </span>
+            <i>会前准备</i>
+          </button>
+          <button class="task-card" type="button" role="tab" aria-selected="false" data-mode="canvas">
+            <span class="task-icon" aria-hidden="true">客</span>
+            <span class="task-copy">
+              <small>单模块</small>
+              <strong>看清客户情境</strong>
+              <em>输出已知事实、待验证假设与资料缺口</em>
+            </span>
+            <i>客户画布</i>
+          </button>
+          <button class="task-card" type="button" role="tab" aria-selected="false" data-mode="risk">
+            <span class="task-icon" aria-hidden="true">险</span>
+            <span class="task-copy">
+              <small>单模块</small>
+              <strong>找出家庭风险缺口</strong>
+              <em>输出身故、医疗、重疾、意外与养老缺口</em>
+            </span>
+            <i>风险诊断</i>
+          </button>
+          <button class="task-card" type="button" role="tab" aria-selected="false" data-mode="comparison">
+            <span class="task-icon" aria-hidden="true">比</span>
+            <span class="task-copy">
+              <small>组合方案</small>
+              <strong>做一份可信产品对比</strong>
+              <em>同时检查差异、证据、不推荐理由与合规</em>
+            </span>
+            <i>可信对比</i>
+          </button>
+          <button class="task-card" type="button" role="tab" aria-selected="false" data-mode="full">
+            <span class="task-icon" aria-hidden="true">全</span>
+            <span class="task-copy">
+              <small>完整推荐</small>
+              <strong>生成完整受控方案</strong>
+              <em>走正式推荐入口，保留审计与人工复核</em>
+            </span>
+            <i>完整方案</i>
+          </button>
+        </div>
+
+        <details class="advanced-composer">
+          <summary>
+            <span><strong>需要自由组合能力？</strong><small>高级设置，日常使用可以跳过</small></span>
+            <i>展开</i>
+          </summary>
+          <div class="composer-grid">
+            <section class="module-library" aria-labelledby="module-library-title">
+              <div class="composer-label">
+                <div>
+                  <span>能力库</span>
+                  <h3 id="module-library-title">选择需要的模块</h3>
+                </div>
+                <em id="selected-count">已选 3 / 12</em>
+              </div>
+              <div class="module-cards" id="module-cards"></div>
+              <p class="module-boundary">
+                客户授权、权限校验、审计、脱敏和 ControlLoop 始终启用，无法关闭。
+              </p>
+            </section>
+
+            <aside class="composition-preview" aria-labelledby="dag-title">
+              <div class="composer-label composer-label-light">
+                <div>
+                  <span>执行顺序</span>
+                  <h3 id="dag-title">系统自动编排</h3>
+                </div>
+                <em id="plan-fingerprint">PLAN · 8B71</em>
+              </div>
+              <div class="dag-preview" id="dag-preview" aria-live="polite"></div>
+              <div class="missing-inputs" id="missing-inputs">
+                <span>缺失输入</span>
+                <strong>无</strong>
+                <p>系统不会暗中运行未选择的模块。</p>
+              </div>
+              <button class="run-composition" type="button" id="run-composition">
+                应用这个组合
+              </button>
+            </aside>
+          </div>
+        </details>
+      </section>
+
+      <section class="workspace reveal" id="workspace" aria-label="客户工作区">
+        <aside class="intake-panel">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">第二步</p>
+              <h2>补充最低资料</h2>
+            </div>
+            <button class="text-button" type="button" id="reset-demo">恢复示例</button>
+          </div>
+          <p class="section-help">先填确定的信息，不确定的内容可以留给顾问追问。</p>
+
+          <form id="client-form">
+            <label class="field field-wide field-prominent">
+              <span>客户现在怎么说？</span>
+              <textarea id="client-voice" name="clientVoice" rows="4">债券基金已经每月派息了，为什么还要买保险？我更关心钱能不能灵活使用。</textarea>
+            </label>
+
+            <label class="field field-wide">
+              <span>本次沟通场景</span>
+              <select id="scenario" name="scenario">
+                <option value="referral">转介绍新客</option>
+                <option value="cross_sell" selected>老客户 cross-sale</option>
+                <option value="up_sell">老客户 up-sale</option>
+                <option value="professional">专业挑战型客户</option>
+                <option value="price_sensitive">价格敏感型客户</option>
+                <option value="dormant">沉睡客户</option>
+                <option value="complaint">投诉风险客户</option>
+              </select>
+            </label>
+
+            <div class="field-row field-row-three">
+              <label class="field">
+                <span>年龄</span>
+                <input id="age" name="age" type="number" min="18" max="90" value="37" inputmode="numeric" />
+              </label>
+              <label class="field">
+                <span>家庭责任</span>
+                <select id="dependents" name="dependents">
+                  <option value="0">暂无</option>
+                  <option value="1" selected>配偶 / 1 位</option>
+                  <option value="2">2 位及以上</option>
+                </select>
+              </label>
+              <label class="field">
+                <span>本次目标</span>
+                <select id="goal" name="goal">
+                  <option value="protection" selected>补齐家庭保障</option>
+                  <option value="medical">完善医疗保障</option>
+                  <option value="income">增加稳健现金流</option>
+                  <option value="growth">长期财富增长</option>
+                  <option value="retirement">养老现金流</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field field-wide">
+              <span>职业</span>
+              <input id="occupation" name="occupation" type="text" value="核电设计工程师" autocomplete="off" />
+            </label>
+
+            <label class="field field-wide">
+              <span>已持有产品</span>
+              <input
+                id="holdings"
+                name="holdings"
+                type="text"
+                value="摩根国际债券（美元）（每月派息）5万元"
+                autocomplete="off"
+              />
+            </label>
+
+            <details class="advanced-fields">
+              <summary><span>家庭财务与保障</span><small>生成风险缺口或完整方案时建议补充</small></summary>
+              <div class="details-grid">
+                <label class="field money-field">
+                  <span>年收入</span>
+                  <input id="income" name="income" type="number" min="0" step="10000" value="360000" inputmode="decimal" />
+                </label>
+                <label class="field money-field">
+                  <span>月支出</span>
+                  <input id="expense" name="expense" type="number" min="0" step="1000" value="18000" inputmode="decimal" />
+                </label>
+                <label class="field money-field">
+                  <span>流动资产</span>
+                  <input id="liquid" name="liquid" type="number" min="0" step="10000" value="120000" inputmode="decimal" />
+                </label>
+                <label class="field money-field">
+                  <span>负债余额</span>
+                  <input id="liabilities" name="liabilities" type="number" min="0" step="10000" value="800000" inputmode="decimal" />
+                </label>
+                <label class="field money-field">
+                  <span>既有寿险保额</span>
+                  <input id="existing-coverage" name="existingCoverage" type="number" min="0" step="10000" value="300000" inputmode="decimal" />
+                </label>
+                <label class="field">
+                  <span>风险态度</span>
+                  <select id="risk-attitude" name="riskAttitude">
+                    <option value="conservative" selected>不愿承受明显亏损</option>
+                    <option value="balanced">可接受有限波动</option>
+                    <option value="growth">理解并接受中高波动</option>
+                  </select>
+                </label>
+              </div>
+            </details>
+
+            <button class="primary-action" type="submit">
+              <span id="action-button-label">生成会前作战卡</span>
+              <b aria-hidden="true">→</b>
+            </button>
+            <p class="form-note">仅生成浏览器演示结果，不保存、不上传，也不构成正式金融建议。</p>
+          </form>
+        </aside>
+
+        <div class="case-panel">
+          <div class="case-toolbar">
+            <div>
+              <p class="section-index">第三步 · 顾问结果</p>
+              <h2 id="case-title">37岁 核电设计工程师 · 家庭保障</h2>
+            </div>
+            <div class="guardrail-summary" id="guardrail-summary" data-state="review">
+              <span>合规状态</span>
+              <strong id="guardrail-state">REVIEW</strong>
+            </div>
+          </div>
+
+          <nav class="tabs" aria-label="结果视图">
+            <button class="tab is-active" type="button" role="tab" aria-selected="true" aria-controls="panel-brief" id="tab-brief" data-tab="brief">
+              行动卡
+            </button>
+            <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-solution" id="tab-solution" data-tab="solution">
+              风险缺口
+            </button>
+            <button class="tab" type="button" role="tab" aria-selected="false" aria-controls="panel-evidence" id="tab-evidence" data-tab="evidence">
+              依据与红线
+            </button>
+          </nav>
+
+          <section class="tab-panel is-active" id="panel-brief" role="tabpanel" aria-labelledby="tab-brief" data-panel="brief">
+            <article class="primary-insight">
+              <span id="primary-insight-label">先判断这件事</span>
+              <h3 id="resistance">不是缺产品，而是客户尚未接受“保障与投资承担不同任务”。</h3>
+              <p id="resistance-reason">先澄清资金用途与流动性底线，不要立刻追加第二个收益型产品。</p>
+            </article>
+
+            <div class="entry-point">
+              <span id="entry-point-label">推荐切入点</span>
+              <strong id="entry-point">从现有债券基金不能替代医疗与收入中断责任讲起。</strong>
+            </div>
+
+            <article class="conversation-card">
+              <div class="card-label" id="conversation-label">建议开场</div>
+              <blockquote id="opening-script">
+                “您已经用债券基金解决了一部分现金流需求。今天我们不急着加产品，先确认三件事：这笔钱要多灵活、家庭责任缺口有多大、哪些风险不能由基金承担。”
+              </blockquote>
+              <div class="conversation-actions">
+                <button class="copy-button" type="button" id="copy-brief">复制会前提纲</button>
+                <span class="copy-status" id="copy-status" role="status"></span>
+              </div>
+            </article>
+
+            <div class="question-layout">
+              <article>
+                <div class="card-label" id="questions-label">只问这三个问题</div>
+                <ol class="question-list" id="question-list">
+                  <li>这笔美元资产未来三年是否有明确用途？</li>
+                  <li>如果停工一年，家庭现金流由什么承担？</li>
+                  <li>您更不能接受保费支出，还是重大风险发生后资产被迫变现？</li>
+                </ol>
+              </article>
+              <article class="do-not-card">
+                <div class="card-label" id="caution-label">本次不要做</div>
+                <ul id="do-not-list">
+                  <li>不要把保险包装成更高收益的替代投资。</li>
+                  <li>不要否定现有债券基金或催促赎回。</li>
+                  <li>健康告知和职业类别未确认前，不给出可投保结论。</li>
+                </ul>
+              </article>
+            </div>
+
+            <article class="next-action-card">
+              <div>
+                <span id="next-action-label">下一步只做一件事</span>
+                <strong id="next-action">补齐医疗保障、职业类别和家庭负债期限，再生成正式报价。</strong>
+              </div>
+              <span class="action-owner">顾问负责</span>
+            </article>
+
+            <details class="preflight-card">
+              <summary>
+                <span><strong>发送话术前做红线预检</strong><small>建议每次客户触达前执行</small></span>
+                <i>展开</i>
+              </summary>
+              <div class="preflight-body">
+                <label class="sr-only" for="message-draft">待预检话术</label>
+                <textarea id="message-draft" rows="3">我整理了一份保障缺口对照表，不承诺收益，重点是帮您看清不同资金分别解决什么问题。</textarea>
+                <div class="preflight-actions">
+                  <button class="secondary-action" type="button" id="check-message">检查话术</button>
+                  <div class="preflight-result" id="preflight-result" data-state="idle" role="status">
+                    <span>等待检查</span>
+                  </div>
+                </div>
+                <p>此处仅演示本地关键词门禁，真实 pilot 必须调用后端话术预检。</p>
+              </div>
+            </details>
+          </section>
+
+          <section class="tab-panel" id="panel-solution" role="tabpanel" aria-labelledby="tab-solution" data-panel="solution" hidden>
+            <div class="panel-intro">
+              <div>
+                <div class="card-label">风险缺口预诊断</div>
+                <h3>先排风险优先级，再谈产品。</h3>
+              </div>
+              <p>金额仅用于发现资料缺口，正式测算仍需后端模型与顾问复核。</p>
+            </div>
+            <div class="risk-list" id="risk-list"></div>
+
+            <div class="solution-grid" id="solution-grid">
+              <article class="solution-card solution-main">
+                <div class="solution-role">主方案</div>
+                <h3 id="main-solution-title">基础保障组合</h3>
+                <p id="main-solution-copy">优先覆盖医疗费用与家庭收入中断，再讨论长期储蓄。</p>
+                <ul id="main-solution-points"></ul>
+                <span class="solution-status">最高适配 · 待报价</span>
+              </article>
+              <article class="solution-card">
+                <div class="solution-role">替代方案</div>
+                <h3 id="alternative-title">预算聚焦组合</h3>
+                <p id="alternative-copy">保留最关键责任，降低首年预算压力。</p>
+                <span class="solution-status">预算更低 · 待核保</span>
+              </article>
+              <article class="solution-card">
+                <div class="solution-role">探索方案</div>
+                <h3 id="explore-title">重疾收入替代</h3>
+                <p id="explore-copy">客户未主动提出，但停工风险对应真实现金流缺口。</p>
+                <span class="solution-status">真实缺口 · 需解释</span>
+              </article>
+              <article class="solution-card solution-blocked">
+                <div class="solution-role">禁止方案</div>
+                <h3 id="blocked-title">以收益为卖点追加产品</h3>
+                <p id="blocked-copy">应急金、KYC 与保障责任未核实前，不得用派息或预期回报推动成交。</p>
+                <span class="solution-status">BLOCK · 不可交付</span>
+              </article>
+            </div>
+          </section>
+
+          <section class="tab-panel" id="panel-evidence" role="tabpanel" aria-labelledby="tab-evidence" data-panel="evidence" hidden>
+            <article class="guardrail-card">
+              <div>
+                <div class="card-label">合规结论</div>
+                <h3 id="evidence-guardrail-title">允许进入人工复核，不允许直接交付</h3>
+                <p id="evidence-guardrail-copy">规则版本 sales-manual-2026-06 · 产品库版本 sample-catalog-v1</p>
+              </div>
+            </article>
+
+            <article class="judge-card">
+              <div class="card-label">红蓝对抗结论</div>
+              <p><strong>方案：</strong>基础保障优先于新增收益产品。</p>
+              <p><strong>质疑：</strong>职业类别、等待期、健康告知和美元资产用途仍未确认。</p>
+              <p><strong>依据：</strong>只采用产品条款、费率表、风险缺口和监管规则。</p>
+            </article>
+
+            <div class="evidence-ledger">
+              <div class="ledger-heading">
+                <div>
+                  <div class="card-label">证据链</div>
+                  <h3>每个结论都要能回到来源</h3>
+                </div>
+                <span>6 类证据</span>
+              </div>
+              <div class="evidence-items" id="evidence-items">
+                <article><b>01</b><div><strong>产品条款</strong><span>等待期、免责、职业限制、续保</span></div><em>待补官方文件</em></article>
+                <article><b>02</b><div><strong>费率与保费</strong><span>性别、年龄、保额、缴费期命中</span></div><em>待正式报价</em></article>
+                <article><b>03</b><div><strong>风险缺口</strong><span>收入、负债、已有保障与家庭责任</span></div><em>浏览器预诊断</em></article>
+                <article><b>04</b><div><strong>合规边界</strong><span>KYC、适当性、销售红线、规则版本</span></div><em>已执行</em></article>
+                <article><b>05</b><div><strong>同类差异</strong><span>责任、成本、流动性与可销售性</span></div><em>待产品入池</em></article>
+                <article><b>06</b><div><strong>不推荐理由</strong><span>为何不是现在、为何不适合这个客户</span></div><em>已生成</em></article>
+              </div>
+            </div>
+
+            <article class="compliance-checklist">
+              <div class="ledger-heading">
+                <div>
+                  <div class="card-label">人工复核</div>
+                  <h3>交付前必须完成</h3>
+                </div>
+                <span class="review-badge">4 项待复核</span>
+              </div>
+              <ul>
+                <li><span></span>确认客户授权、KYC 与风险测评有效。</li>
+                <li><span></span>确认核电设计岗位对应职业类别与核保要求。</li>
+                <li><span></span>引用当前版本产品条款、费率表和官方文件。</li>
+                <li><span></span>由高级顾问审批，再记录客户理解确认。</li>
+              </ul>
+            </article>
+          </section>
+        </div>
+      </section>
+
+      <details class="technical-details reveal">
+        <summary>
+          <span><strong>查看能力覆盖与审计产物</strong><small>供高级顾问、合规和技术人员核查</small></span>
+          <i>展开</i>
+        </summary>
+        <div class="artifact-console">
+          <section class="coverage-panel" aria-labelledby="coverage-title">
+            <div class="composer-label">
+              <div>
+                <span>质量覆盖</span>
+                <h3 id="coverage-title">六个维度分别呈现</h3>
+              </div>
+            </div>
+            <div class="coverage-grid" id="coverage-grid"></div>
+            <div class="next-module" id="next-module">
+              <span>建议下一模块</span>
+              <strong>家庭风险缺口</strong>
+              <p>只做提示，不会自动启用。</p>
+            </div>
+          </section>
+
+          <section class="artifact-stack-panel" aria-labelledby="artifact-title">
+            <div class="composer-label">
+              <div>
+                <span>版本化产物</span>
+                <h3 id="artifact-title">本次运行记录</h3>
+              </div>
+              <em id="artifact-status">等待生成</em>
+            </div>
+            <div class="artifact-stack" id="artifact-stack">
+              <article class="artifact-placeholder">
+                <strong>尚未生成演示产物</strong>
+                <p>提交客户资料后，这里会显示模块产物与输入 lineage。任何产物都不能直接交付。</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </details>
+
+      <section class="trust-bar" aria-label="Pilot 安全边界">
+        <strong>始终开启</strong>
+        <span>客户授权</span>
+        <span>后端权限</span>
+        <span>审计脱敏</span>
+        <span>合规预检</span>
+        <span>人工复核</span>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Golden Client Manager</strong>
+        <p>让客户经理更快、更稳、更合规地帮助客户理解和决策。</p>
+      </div>
+      <a href="https://github.com/pamelacai310-sketch/golden-client-manager">查看项目</a>
+      <p class="legal">仅用于受控 pilot 与产品演示，不构成投资、保险、税务或法律建议。</p>
+    </footer>
+  </body>
+</html>
