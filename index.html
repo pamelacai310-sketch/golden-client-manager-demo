@@ -397,8 +397,26 @@
               <div>
                 <div class="card-label">合规结论</div>
                 <h3 id="evidence-guardrail-title">允许进入人工复核，不允许直接交付</h3>
-                <p id="evidence-guardrail-copy">规则版本 sales-manual-2026-06 · 产品库版本 sample-catalog-v1</p>
+                <p id="evidence-guardrail-copy">规则版本 sales-manual-2026-06 · 产品库版本 hsbc-cn-2026-04-25</p>
               </div>
+            </article>
+
+            <article class="catalog-status-card" aria-labelledby="catalog-status-title">
+              <div class="catalog-status-heading">
+                <div>
+                  <div class="card-label">真实产品池</div>
+                  <h3 id="catalog-status-title">汇丰人寿 · 19 款已入池</h3>
+                </div>
+                <span>人工复核候选</span>
+              </div>
+              <div class="catalog-metrics" aria-label="汇丰产品池概况">
+                <div><strong>8</strong><span>年金险</span></div>
+                <div><strong>10</strong><span>终身寿险</span></div>
+                <div><strong>1</strong><span>意外险</span></div>
+                <div><strong>19/19</strong><span>官方条款已关联</span></div>
+              </div>
+              <p><strong>报价门禁：</strong>当前 19 款产品均缺完整费率表，只能用于责任核对、产品筛选与人工复核，不能生成正式投保计划。</p>
+              <a href="https://github.com/pamelacai310-sketch/golden-client-manager/blob/main/src/golden_client_manager/data/hsbc_insurance_products.json" target="_blank" rel="noreferrer">查看结构化产品目录</a>
             </article>
 
             <article class="judge-card">
@@ -417,11 +435,11 @@
                 <span>6 类证据</span>
               </div>
               <div class="evidence-items" id="evidence-items">
-                <article><b>01</b><div><strong>产品条款</strong><span>等待期、免责、职业限制、续保</span></div><em>待补官方文件</em></article>
-                <article><b>02</b><div><strong>费率与保费</strong><span>性别、年龄、保额、缴费期命中</span></div><em>待正式报价</em></article>
+                <article><b>01</b><div><strong>产品条款</strong><span>等待期、免责、职业限制、续保</span></div><em>19 款已关联官方条款</em></article>
+                <article><b>02</b><div><strong>费率与保费</strong><span>性别、年龄、保额、缴费期命中</span></div><em>缺完整费率表</em></article>
                 <article><b>03</b><div><strong>风险缺口</strong><span>收入、负债、已有保障与家庭责任</span></div><em>浏览器预诊断</em></article>
                 <article><b>04</b><div><strong>合规边界</strong><span>KYC、适当性、销售红线、规则版本</span></div><em>已执行</em></article>
-                <article><b>05</b><div><strong>同类差异</strong><span>责任、成本、流动性与可销售性</span></div><em>待产品入池</em></article>
+                <article><b>05</b><div><strong>同类差异</strong><span>责任、成本、流动性与可销售性</span></div><em>19 款已入池 · 成本待费率</em></article>
                 <article><b>06</b><div><strong>不推荐理由</strong><span>为何不是现在、为何不适合这个客户</span></div><em>已生成</em></article>
               </div>
             </div>
