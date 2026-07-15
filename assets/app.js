@@ -472,7 +472,7 @@ function renderPlaybook(profile, assessment) {
   $("#evidence-guardrail-copy").textContent =
     assessment.state === "block"
       ? "请修复年龄、职业或收入输入后重新生成 · 当前 case 保持原状态"
-      : "规则版本 sales-manual-2026-06 · 产品库版本 hsbc-cn-2026-04-25";
+      : "规则版本 sales-manual-2026-06 · 产品库版本 gcm-cn-2026-07-15";
 }
 
 function renderRisks(assessment) {

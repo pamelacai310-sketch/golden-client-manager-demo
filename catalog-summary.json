@@ -1,0 +1,66 @@
+{
+  "schema_version": "gcm.public_catalog_summary.v1",
+  "snapshot_date": "2026-07-15",
+  "scope": "受控 Pilot 的公开脱敏产品池摘要，不构成销售、承保或报价结论。",
+  "totals": {
+    "provider_count": 2,
+    "product_count": 23,
+    "official_terms_linked": 23,
+    "fully_structured_rate_products": 22,
+    "partially_structured_rate_products": 1,
+    "premium_rate_entry_count": 88065
+  },
+  "providers": [
+    {
+      "provider": "汇丰人寿保险有限公司",
+      "product_count": 19,
+      "premium_rate_entry_count": 30792,
+      "fully_structured_rate_products": 18,
+      "partially_structured_rate_products": 1
+    },
+    {
+      "provider": "安联人寿保险有限公司",
+      "product_count": 4,
+      "premium_rate_entry_count": 57273,
+      "fully_structured_rate_products": 4,
+      "partially_structured_rate_products": 0,
+      "official_disclosure": "https://www.allianz.com.cn/public/publicDisclosure/AZ0070208",
+      "products": [
+        {
+          "name": "安联安享丰赢C养老年金保险（分红型）",
+          "category": "养老年金保险",
+          "terms": "https://www.allianz.com.cn/allianz/001d14c12383421f91106c6ef70ae479.pdf",
+          "premium_table": "https://www.allianz.com.cn/allianz/d9455eab50564467a2e4f632a9c93917.pdf",
+          "premium_rate_entry_count": 1433
+        },
+        {
+          "name": "安联安赢丰年年金保险（分红型）",
+          "category": "年金保险",
+          "terms": "https://www.allianz.com.cn/allianz/cf91d71c4f674263ba62a6944443346c.pdf",
+          "premium_table": "https://www.allianz.com.cn/allianz/bdfeedbd9d4f4802a959ba81815d3df9.pdf",
+          "premium_rate_entry_count": 7696
+        },
+        {
+          "name": "安联安康恒佑C（II）重大疾病保险",
+          "category": "重大疾病保险",
+          "terms": "https://www.allianz.com.cn/allianz/00fcb212383d429aa92b4fa1603e0f04.pdf",
+          "premium_table": "https://www.allianz.com.cn/allianz/1372c86c2fed45569a212b862ff90f7f.pdf",
+          "premium_rate_entry_count": 37800
+        },
+        {
+          "name": "安联盛世臻传C（5.0）终身寿险（分红型）",
+          "category": "终身寿险",
+          "terms": "https://www.allianz.com.cn/allianz/0f2079b074d04da9bd48c64603e66c59.pdf",
+          "premium_table": "https://www.allianz.com.cn/allianz/0fb57c6ac66d4d3aad6b28a0469f916f.pdf",
+          "premium_rate_entry_count": 10344
+        }
+      ]
+    }
+  ],
+  "guardrails": [
+    "所有正式建议必须经过后端权限校验、合规预检和人工复核。",
+    "关键费率维度缺失或存在歧义时，不生成正式投保计划。",
+    "分红水平不保证；健康告知、职业、地区、渠道和核保结论不得推断。",
+    "汇丰综合意外险的医疗计划保额映射仍为部分结构化，必须人工复核。"
+  ]
+}
